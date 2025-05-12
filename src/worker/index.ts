@@ -6,7 +6,6 @@ app.get(
   "*",
   upgradeWebSocket(() => {
     console.log("websocket opened");
-
     return {
       onMessage(event, ws) {
         console.log("Received message from client:", event.data);
