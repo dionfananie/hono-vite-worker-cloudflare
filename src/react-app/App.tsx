@@ -45,7 +45,7 @@ function App() {
         <button
           onClick={() => {
             setCount((count) => count + 1);
-            ws.send("hello");
+            ws?.send("hello");
           }}
           aria-label="increment"
         >
