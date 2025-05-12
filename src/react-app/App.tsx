@@ -1,6 +1,6 @@
 // src/App.tsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
@@ -10,7 +10,16 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("unknown");
+  const [ws, setWs] = useState<WebSocket>();
 
+  useEffect(() => {
+    const websocket = new WebSocket(import.meta.env.VITE_URL_WS);
+    setWs(websocket);
+    websocket.addEventListener("message", (event) => {
+      console.log("Message received from server");
+      console.log(event.data);
+    });
+  }, []);
   return (
     <>
       <div>
@@ -34,7 +43,10 @@ function App() {
       <h1>Vite + React + Hono + Cloudflare</h1>
       <div className="card">
         <button
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => {
+            setCount((count) => count + 1);
+            ws.send("hello");
+          }}
           aria-label="increment"
         >
           count is {count}
