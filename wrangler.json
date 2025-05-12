@@ -32,7 +32,7 @@
    * Environment Variables
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    */
-  "vars": { "VITE_URL_WS": "ws://localhost:5173/ws" },
+  "vars": { "VITE_URL_WS": "wss://my-hono-app.dionfananie.workers.dev/ws" },
   "env": {
     "production": {
       "vars": {
