@@ -6,6 +6,7 @@ import viteLogo from "/vite.svg";
 import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
 import honoLogo from "./assets/hono.svg";
 import "./App.css";
+import { getEnv } from "./utils/getEnv";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +14,9 @@ function App() {
   const [ws, setWs] = useState<WebSocket>();
 
   useEffect(() => {
+    const wsUrl = getEnv("URL_WS");
+    console.log(wsUrl);
+
     const websocket = new WebSocket(import.meta.env.VITE_URL_WS);
     console.log("import.meta.env.VITE_URL_WS: ", import.meta.env.VITE_URL_WS);
 
