@@ -34,6 +34,11 @@
    */
   "vars": { "VITE_URL_WS": "wss://my-hono-app.dionfananie.workers.dev/ws" },
   "env": {
+    "staging": {
+      "vars": {
+        "VITE_URL_WS": "wss://my-hono-app.dionfananie.workers.dev/ws"
+      }
+    },
     "production": {
       "vars": {
         "VITE_URL_WS": "wss://my-hono-app.dionfananie.workers.dev/ws"
