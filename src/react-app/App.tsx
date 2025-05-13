@@ -14,6 +14,8 @@ function App() {
 
   useEffect(() => {
     const websocket = new WebSocket(import.meta.env.VITE_URL_WS);
+    console.log("import.meta.env.VITE_URL_WS: ", import.meta.env.VITE_URL_WS);
+
     setWs(websocket);
     websocket.addEventListener("message", (event) => {
       console.log("Message received from server");
