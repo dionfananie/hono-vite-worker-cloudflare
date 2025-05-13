@@ -1,7 +1,0 @@
-    # wrangler.toml
-    [env.development.vars]
-      VITE_API_URL = "http://localhost:3000"
-      VITE_URL_WS="ws://localhost:5173/ws"
-    [env.production.vars]
-      VITE_API_URL = "https://your-production-api.com"
-      VITE_URL_WS="ws://localhost:5173/ws"
